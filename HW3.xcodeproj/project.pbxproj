@@ -25,6 +25,9 @@
 /* Begin PBXFileReference section */
 		8EB9B1E427F2656900DF75B7 /* HW3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW3; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB9B1E727F2656900DF75B7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8EB9B1EE27F2663500DF75B7 /* Patron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Patron.h; sourceTree = "<group>"; };
+		8EB9B1EF27F2664D00DF75B7 /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		8EB9B1F027F2666200DF75B7 /* Loan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loan.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				8EB9B1E727F2656900DF75B7 /* main.cpp */,
+				8EB9B1EF27F2664D00DF75B7 /* Book.h */,
+				8EB9B1F027F2666200DF75B7 /* Loan.h */,
+				8EB9B1EE27F2663500DF75B7 /* Patron.h */,
 			);
 			path = HW3;
 			sourceTree = "<group>";
