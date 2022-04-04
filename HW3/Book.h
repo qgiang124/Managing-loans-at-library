@@ -8,5 +8,34 @@
 #ifndef Book_h
 #define Book_h
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+private:
+    string author;
+    string title;
+    int    ISBNNum;
+    string libID;
+    double cost;
+    string currStatus;
+    
+public:
+    Book();
+    Book(string author, string title, int ISBNNum, string libID, double cost, string currStatus);
+    void SetAuthor(string authToSet);
+    void SetTitle(string titToSet);
+    void SetISBNNum(int numToSet);
+    void SetLibraryID(int IDToSet);
+    void SetCost(double costToSet);
+    void SetCurrStatus(string statusToSet);
+    string GetAuthor();
+    string GetTitle()
+    int    GetISBNNum();
+    int    GetLibraryID();
+    double GetCost();
+    string GetStatus();
+}
 
 #endif /* Book_h */
