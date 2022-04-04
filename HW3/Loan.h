@@ -8,5 +8,25 @@
 #ifndef Loan_h
 #define Loan_h
 
+#include "Book.h"
+
+class Loan {
+private:
+    Book usrBook;
+    Patron currPatron;  //current patron
+    int loanID;
+    string dueDate;
+    string currLoanStatus;
+    
+public:
+    void SetLoanID(int LIDToSet);
+    void SetDueDate(string dateToSet);
+    void SetLoanStatus(string statToSet);
+    int  GetLoanID();
+    int  GetPatronID();
+    int  GetBookID();
+    int  GetDueDate();
+    string GetCurrLoanStatus();
+}
 
 #endif /* Loan_h */
