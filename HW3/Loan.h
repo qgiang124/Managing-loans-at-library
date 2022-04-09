@@ -9,6 +9,7 @@
 #define Loan_h
 
 #include "Book.h"
+using namespace std;
 
 class Loan {
 private:
@@ -27,6 +28,6 @@ public:
     int  GetBookID();
     int  GetDueDate();
     string GetCurrLoanStatus();
-}
+};
 
 #endif /* Loan_h */

@@ -7,6 +7,7 @@
 
 #ifndef Patron_h
 #define Patron_h
+using namespace std;
 
 class Patron{
 private:
@@ -17,12 +18,12 @@ private:
 public:
     void SetPatName(string nameToSet);
     void SetPatID(int IDToSet);
-    void SetFineBal(doulbe amountToSet);
+    void SetFineBal(double amountToSet);
     void SetNumBooksOut(int numToSet);
     string GetPatName();
     int    GetPatID();
     double GetFineBalance();
     int    GetNumBooksOut();
-}
+};
 
 #endif /* Patron_h */

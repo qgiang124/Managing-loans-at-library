@@ -31,11 +31,12 @@ public:
     void SetCost(double costToSet);
     void SetCurrStatus(string statusToSet);
     string GetAuthor();
-    string GetTitle()
+    string GetTitle();
     int    GetISBNNum();
-    int    GetLibraryID();
+    string GetLibraryID();
     double GetCost();
     string GetStatus();
-}
+    void   PrintBook();
+};
 
 #endif /* Book_h */
