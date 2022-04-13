@@ -9,6 +9,8 @@
 #define Loan_h
 
 #include "Book.h"
+#include "Patron.h"
+#include <ctime>
 using namespace std;
 
 class Loan {
@@ -20,6 +22,8 @@ private:
     string currLoanStatus;
     
 public:
+    Loan();
+    Loan(Patron currPatron, Book usrBook, int loanID, string dueDate, string currLoanStatus);
     void SetLoanID(int LIDToSet);
     void SetDueDate(string dateToSet);
     void SetLoanStatus(string statToSet);

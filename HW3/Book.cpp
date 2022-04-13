@@ -72,6 +72,11 @@ string Book::GetStatus() {
     return currStatus;
 }
 
-//void Book::PrintBook() {
-//    cout <<
-//}
+void Book::PrintBook() {
+    cout << left << setw(20) << "Title: " << title << endl;
+    cout << left << setw(20) << "Author: " << author << endl;
+    cout << left << setw(20) << "ISBNNum: " << ISBNNum << endl;
+    cout << left << setw(20) << "Library ID number: " << libID << endl;
+    cout << left << setw(20) << "Cost: " << cost << endl;
+    cout << left << setw(20) << "Status: " << currStatus << endl;
+}
