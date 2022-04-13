@@ -10,11 +10,13 @@
 #include "Patrons.h"
 #include "Loans.h"
 #include "Book.h"
+#include "Loan.h"
+
 using namespace std;
     
 void TestBookClass() {
     Book my_book;
-    Book my_2_book("giang", "my_diary", 39848392, "ieisic", 394.3, "taken");
+    Book my_2_book("giang", "my_diary", 39848392, 3432 , 394.3, "taken");
     my_book.PrintBook();
     cout << "---------------------------------\n";
     my_2_book.PrintBook();
@@ -34,9 +36,18 @@ void TestPatronClass() {
     
 }
 
+void TestLoanClass() {
+    Loan loan1;
+    Loan loan2(234, 345, 34, "Jun 4, 2022", "taken");
+    loan1.SetLoanID(353);
+    loan1.PrintLoan();
+    cout << "-----------------" << endl;
+    loan2.PrintLoan();
+}
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
 //    TestBookClass();
-    TestPatronClass();
+//    TestPatronClass();
+    TestLoanClass();
     return 0;
 }

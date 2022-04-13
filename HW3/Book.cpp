@@ -11,12 +11,12 @@ Book::Book(){
     author     = "none";
     title      = "none";
     ISBNNum    = 0;
-    libID      = "none";
+    libID      = 0;
     cost       = 0;
     currStatus = "none";
 }
 
-Book::Book(string author, string title, int ISBNNum, string libID, double cost, string currStatus) {
+Book::Book(string author, string title, int ISBNNum, int libID, double cost, string currStatus) {
     this->author = author;
     this->title  = title;
     this->libID  = libID;
@@ -60,7 +60,7 @@ int Book::GetISBNNum() {
     return ISBNNum;
 }
 
-string Book::GetLibraryID() {
+int Book::GetLibraryID() {
     return libID;
 }
 

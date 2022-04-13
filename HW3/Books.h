@@ -8,5 +8,7 @@
 #ifndef Books_h
 #define Books_h
 
+#include "Book.h"
+
 
 #endif /* Books_h */

@@ -8,23 +8,27 @@
 #ifndef Loan_h
 #define Loan_h
 
-#include "Book.h"
-#include "Patron.h"
-#include <ctime>
+#include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
 class Loan {
 private:
-    Book usrBook;
-    Patron currPatron;  //current patron
+//    Book usrBook;
+//    Patron currPatron;  //current patron
     int loanID;
+    int bookID;
+    int patronID;
     string dueDate;
     string currLoanStatus;
     
 public:
     Loan();
-    Loan(Patron currPatron, Book usrBook, int loanID, string dueDate, string currLoanStatus);
+    Loan(int loanID, int bookID, int patronID, string dueDate, string currLoanStatus);
     void SetLoanID(int LIDToSet);
+    void SetBookID(int BIDToSet);
+    void SetPatronID(int PIDToSet);
     void SetDueDate(string dateToSet);
     void SetLoanStatus(string statToSet);
     int  GetLoanID();
@@ -32,6 +36,7 @@ public:
     int  GetBookID();
     int  GetDueDate();
     string GetCurrLoanStatus();
+    void PrintLoan();
 };
 
 #endif /* Loan_h */

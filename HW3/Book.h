@@ -18,13 +18,13 @@ private:
     string author;
     string title;
     int    ISBNNum;
-    string libID;
+    int    libID;
     double cost;
     string currStatus;
     
 public:
     Book();
-    Book(string author, string title, int ISBNNum, string libID, double cost, string currStatus);
+    Book(string author, string title, int ISBNNum, int libID, double cost, string currStatus);
     void SetAuthor(string authToSet);
     void SetTitle(string titToSet);
     void SetISBNNum(int numToSet);
@@ -34,7 +34,7 @@ public:
     string GetAuthor();
     string GetTitle();
     int    GetISBNNum();
-    string GetLibraryID();
+    int GetLibraryID();
     double GetCost();
     string GetStatus();
     void   PrintBook();
