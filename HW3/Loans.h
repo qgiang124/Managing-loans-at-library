@@ -8,16 +8,19 @@
 #ifndef Loans_h
 #define Loans_h
 
-#include "Patron.h"
-#include <vector>
-using namespace std;
+#include "Loan.h"
+#include <list>
 
-class Patrons {
+class Loans {
 private:
-    vector<Patron> patronList;
     int count;
+    list<Loan> listLoan;
 public:
-    void AddPatron();
+    void CheckOutBook(int patronID);
+    void CheckInBook(int patronID);
+    void ListOverdue(int patronID);
+    void ListAllBookFor(int patronID);
+    void RecheckBook(int patronID);
+    void ReportLost(int patronID);
 };
-
 #endif /* Loans_h */
