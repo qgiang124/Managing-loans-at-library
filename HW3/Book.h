@@ -17,23 +17,23 @@ class Book {
 private:
     string author;
     string title;
-    int    ISBNNum;
+    string ISBNNum;
     int    libID;
     double cost;
     string currStatus;
     
 public:
     Book();
-    Book(string author, string title, int ISBNNum, int libID, double cost, string currStatus);
+    Book(string author, string title, string ISBNNum, int libID, double cost, string currStatus);
     void SetAuthor(string authToSet);
     void SetTitle(string titToSet);
-    void SetISBNNum(int numToSet);
+    void SetISBNNum(string numToSet);
     void SetLibraryID(int IDToSet);
     void SetCost(double costToSet);
     void SetCurrStatus(string statusToSet);
     string GetAuthor();
     string GetTitle();
-    int    GetISBNNum();
+    string    GetISBNNum();
     int GetLibraryID();
     double GetCost();
     string GetStatus();

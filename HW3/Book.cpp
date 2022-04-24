@@ -10,13 +10,13 @@
 Book::Book(){
     author     = "none";
     title      = "none";
-    ISBNNum    = 0;
+    ISBNNum    = "none";
     libID      = 0;
     cost       = 0;
     currStatus = "none";
 }
 
-Book::Book(string author, string title, int ISBNNum, int libID, double cost, string currStatus) {
+Book::Book(string author, string title, string ISBNNum, int libID, double cost, string currStatus) {
     this->author = author;
     this->title  = title;
     this->libID  = libID;
@@ -32,7 +32,7 @@ void Book::SetTitle(string titToSet) {
     title = titToSet;
 }
 
-void Book::SetISBNNum(int numToSet) {
+void Book::SetISBNNum(string numToSet) {
     ISBNNum = numToSet;
 }
 
@@ -56,7 +56,7 @@ string Book::GetTitle() {
     return title;
 }
 
-int Book::GetISBNNum() {
+string Book::GetISBNNum() {
     return ISBNNum;
 }
 
@@ -73,10 +73,11 @@ string Book::GetStatus() {
 }
 
 void Book::PrintBook() {
+    cout << "----------BOOK DETAILS--------------\n";
     cout << left << setw(20) << "Title: " << title << endl;
     cout << left << setw(20) << "Author: " << author << endl;
     cout << left << setw(20) << "ISBNNum: " << ISBNNum << endl;
     cout << left << setw(20) << "Library ID number: " << libID << endl;
-    cout << left << setw(20) << "Cost: " << cost << endl;
+    cout << left << setw(20) << "Cost: " << "$" << cost << endl;
     cout << left << setw(20) << "Status: " << currStatus << endl;
 }

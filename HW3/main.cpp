@@ -16,7 +16,7 @@ using namespace std;
     
 void TestBookClass() {
     Book my_book;
-    Book my_2_book("giang", "my_diary", 39848392, 3432 , 394.3, "taken");
+    Book my_2_book("giang", "my_diary", "39848392", 3432 , 394.3, "taken");
     my_book.PrintBook();
     cout << "---------------------------------\n";
     my_2_book.PrintBook();
@@ -45,9 +45,14 @@ void TestLoanClass() {
     loan2.PrintLoan();
 }
 
-int main(int argc, const char * argv[]) {
+int main() {
 //    TestBookClass();
 //    TestPatronClass();
-    TestLoanClass();
+//    TestLoanClass();
+    Books listBook;
+    
+    
+    cout << "Enter book name: " << endl;
+    listBook.LoadBook();
     return 0;
 }

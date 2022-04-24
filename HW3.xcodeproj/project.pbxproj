@@ -11,6 +11,8 @@
 		8E5869A0280642CA00134156 /* Loan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E58699F280642C900134156 /* Loan.cpp */; };
 		8EB9B1E827F2656900DF75B7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B1E727F2656900DF75B7 /* main.cpp */; };
 		8ED3AC6B28008CB90019688F /* Book.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED3AC6A28008CB90019688F /* Book.cpp */; };
+		8EE0993D28131863003F8A9A /* Books.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EE0993C28131863003F8A9A /* Books.cpp */; };
+		8EE099402814FCFB003F8A9A /* Loans.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EE0993F2814FCFB003F8A9A /* Loans.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,9 @@
 		8EB9B1EF27F2664D00DF75B7 /* Book.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		8EB9B1F027F2666200DF75B7 /* Loan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loan.h; sourceTree = "<group>"; };
 		8ED3AC6A28008CB90019688F /* Book.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Book.cpp; sourceTree = "<group>"; };
+		8EE0993C28131863003F8A9A /* Books.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Books.cpp; sourceTree = "<group>"; };
+		8EE0993E2814DC83003F8A9A /* books.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = books.dat; sourceTree = "<group>"; };
+		8EE0993F2814FCFB003F8A9A /* Loans.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loans.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +78,10 @@
 				8EB9B1EF27F2664D00DF75B7 /* Book.h */,
 				8EB9B1F027F2666200DF75B7 /* Loan.h */,
 				8E13EC6F27FB461C00895F19 /* Books.h */,
+				8EE0993F2814FCFB003F8A9A /* Loans.cpp */,
 				8ED3AC6A28008CB90019688F /* Book.cpp */,
+				8EE0993E2814DC83003F8A9A /* books.dat */,
+				8EE0993C28131863003F8A9A /* Books.cpp */,
 				8E58699F280642C900134156 /* Loan.cpp */,
 				8E58699D28063C0F00134156 /* Patron.cpp */,
 				8EB9B1EE27F2663500DF75B7 /* Patron.h */,
@@ -143,7 +151,9 @@
 				8E58699E28063C0F00134156 /* Patron.cpp in Sources */,
 				8ED3AC6B28008CB90019688F /* Book.cpp in Sources */,
 				8EB9B1E827F2656900DF75B7 /* main.cpp in Sources */,
+				8EE0993D28131863003F8A9A /* Books.cpp in Sources */,
 				8E5869A0280642CA00134156 /* Loan.cpp in Sources */,
+				8EE099402814FCFB003F8A9A /* Loans.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

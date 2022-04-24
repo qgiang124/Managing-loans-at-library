@@ -9,20 +9,22 @@
 #define Books_h
 
 #include "Book.h"
-#include <list>
+#include <vector>
 
 class Books {
 private:
-    int count;
-    list<Book> listBook;
+    int count =  0;
+    vector<Book> listBook;
+    int GetNumBook();
     
 public:
     void AddBook(Book currBook);
-    void EditBook(int bookID);
     void DeleteBook(int bookID);
-    int  SearchBook(int bookID);
+    void EditBook(int bookID);
+    void LoadBook();
     void PrintAllBook();
-    void PrintBook();
+    void PrintBook(int bookID);
+    int  SearchBook(int bookID);
 };
 
 #endif /* Books_h */
