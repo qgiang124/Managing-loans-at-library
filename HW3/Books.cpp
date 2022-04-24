@@ -31,7 +31,7 @@ void Books::EditBook(int bookID) {
     }
     else {
         cout << "What do you want to update? \n";
-        cout << "1. Author \2. Title \n3. ISBN number \n4. Library ID \n5. Cost \n6. Current status \n";
+        cout << "1. Author \n2. Title \n3. ISBN number \n4. Library ID \n5. Cost \n6. Current status \n";
         cin  >> choice;
         
         switch (choice) {
@@ -66,7 +66,21 @@ void Books::EditBook(int bookID) {
                 currBook->SetCurrStatus(newCurrStatus);
                 break;
         }
+        
+        cout << "Updated!\n";
     }
+}
+
+int Books::GetCount() {
+    return count;
+}
+
+void Books::IncCount() {
+    count++;
+}
+
+void Books::DecCount() {
+    count--;
 }
 
 void Books::LoadBook() {
@@ -106,6 +120,7 @@ void Books::LoadBook() {
         currBook.SetCurrStatus(currStatus);
         
         AddBook(currBook);
+        count++;
     }
 }
 
@@ -126,11 +141,10 @@ int Books::SearchBook(int bookID) {
     unsigned int pos = 0; //the posititon of the needed-to-look book
     vector<Book>::iterator iter;
     for (iter = listBook.begin(); iter != listBook.end(); iter++) {
-        count++;
         if ((*iter).GetLibraryID() == bookID) {
-            pos = count;
             return pos;
         }
+        pos++;
     }
     return -1;
 }

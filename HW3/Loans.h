@@ -9,16 +9,16 @@
 #define Loans_h
 
 #include "Loan.h"
-#include <list>
+#include <vector>
 
 class Loans {
 private:
     int count;
-    list<Loan> listLoan;
+    vector<Loan> listLoan;
 public:
-    void CheckOutBook(int patronID);
-    void CheckInBook(int patronID);
-    void ListOverdue(int patronID);
+    void CheckOutBook();
+    void CheckInBook();
+    void ListOverdue();
     void ListAllBookFor(int patronID);
     void RecheckBook(int patronID);
     void ReportLost(int patronID);

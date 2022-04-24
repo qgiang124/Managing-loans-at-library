@@ -54,5 +54,7 @@ int main() {
     
     cout << "Enter book name: " << endl;
     listBook.LoadBook();
+    
+    listBook.EditBook(4);
     return 0;
 }

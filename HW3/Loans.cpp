@@ -5,4 +5,11 @@
 //  Created by Giang Tran on 4/23/22.
 //
 
-#include <stdio.h>
+#include "Loans.h"
+#include "Patrons.h"
+
+using namespace std;
+
+void Loans::CheckOutBook() {
+    
+}

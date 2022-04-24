@@ -9,17 +9,20 @@
 #define Patrons_h
 
 #include "Patron.h"
-#include <list>
+#include <vector>
 
 class Patrons {
 private:
-    list<Patron> listPatron;
+    vector<Patron> listPatron;
     int count;
 public:
     void AddPatron(Patron currPatron);
-    void EditPatron(int patronID);
     void DeletePatron(int patronID);
-    void SearchPatron(int patronID);
+    void EditPatron(int patronID);
+    void DecCount();
+    void IncCount();
+    int  GetCount();
+    int SearchPatron(int patronID);
     double PayFines(int patronID);
     void PrintAllPatrons();
     void PrintPatron();

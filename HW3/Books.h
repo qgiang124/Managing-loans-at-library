@@ -15,12 +15,13 @@ class Books {
 private:
     int count =  0;
     vector<Book> listBook;
-    int GetNumBook();
-    
 public:
     void AddBook(Book currBook);
     void DeleteBook(int bookID);
     void EditBook(int bookID);
+    int GetCount();
+    void IncCount();
+    void DecCount();
     void LoadBook();
     void PrintAllBook();
     void PrintBook(int bookID);
