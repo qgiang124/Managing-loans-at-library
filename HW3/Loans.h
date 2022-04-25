@@ -23,15 +23,14 @@ private:
     int count = 0;
     int ID = 0;
     vector<Loan> listLoan;
-    string GetDueTime();
-    
+//    time_t checkOutTime;
+    void CheckOverDue(Loan* loan, Patron &patron);
 public:
     void CheckOutBook(Patron* pat, Book* book);
-    void CheckInBook(Patron* pat, Book* book);
+    void CheckInBook(Patron* pat, Book* book, Loan* loan);
     void ListOverdue();
-    void ListAllBookFor(int patronID);
+    void ListAllBookFor(Patron* pat, Books* books);
     void RecheckBook(int patronID);
-    void EditLoan();
-    void ReportLost(int patronID);
+//    void ReportLost(int patronID);
 };
 #endif /* Loans_h */

@@ -20,19 +20,20 @@ private:
     int loanID;
     int bookID;
     int patronID;
-    string dueDate;
+    time_t dueDate;
+    
     
 public:
     Loan();
-    Loan(int loanID, int bookID, int patronID, string dueDate);
+    Loan(int loanID, int bookID, int patronID, time_t dueDate);
     void SetLoanID(int LIDToSet);
     void SetBookID(int BIDToSet);
     void SetPatronID(int PIDToSet);
-    void SetDueDate(string dateToSet);
+    void SetDueDate(time_t dateToSet);
     int  GetLoanID();
     int  GetPatronID();
     int  GetBookID();
-    int  GetDueDate();
+    time_t  GetDueDate();
     void PrintLoan();
 };
 

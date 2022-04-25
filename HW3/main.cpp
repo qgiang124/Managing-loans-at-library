@@ -39,7 +39,7 @@ void TestPatronClass() {
 
 void TestLoanClass() {
     Loan loan1;
-    Loan loan2(234, 345, 34, "Jun 4, 2022");
+    Loan loan2(234, 345, 34, 4363);
     loan1.SetLoanID(353);
     loan1.PrintLoan();
     cout << "-----------------" << endl;
@@ -57,9 +57,13 @@ int main() {
 //    listBook.LoadBook();
 //    listBook.PrintAllBook();
     
-    listPatron.LoadPatron();
-    listPatron.PrintAllPatrons();
+//    listPatron.LoadPatron();
+//    listPatron.PrintAllPatrons();
+    time_t now = time(0);
+//    cout << now << endl;
+    time_t due=  now  + CHECK_OUT_PERIOD;
     
-    listPatron.PayFines(3);
+    cout << difftime(now, due) << endl << difftime(due, now);
+//    listPatron.PayFines(3);
     return 0;
 }

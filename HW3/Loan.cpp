@@ -11,10 +11,10 @@ Loan::Loan(){
     loanID = 0;
     bookID = 0;
     patronID = 0;
-    dueDate = "no data";
+    dueDate = 0;
 }
 
-Loan::Loan(int patronID, int bookID, int loanID, string dueDate) {
+Loan::Loan(int patronID, int bookID, int loanID, time_t dueDate) {
 //    this->currPatron = currPatron;
 //    this->usrBook = usrBook;
     this->loanID = loanID;
@@ -35,8 +35,24 @@ void Loan::SetPatronID(int PIDToSet) {
     patronID = PIDToSet;
 }
 
-void Loan::SetDueDate(string dateToSet) {
+void Loan::SetDueDate(time_t dateToSet) {
     dueDate = dateToSet;
+}
+
+int Loan::GetLoanID() {
+    return loanID;
+}
+
+int Loan::GetPatronID() {
+    return patronID;
+}
+
+int Loan::GetBookID() {
+    return bookID;
+}
+
+time_t Loan::GetDueDate() {
+    return dueDate;
 }
 
 void Loan::PrintLoan() {
