@@ -26,6 +26,8 @@ public:
     void SetPatID(int IDToSet);
     void SetFineBal(double amountToSet);
     void SetNumBooksOut(int numToSet);
+    void AddFine(int amount);
+    void PayFine(int amount);
     string GetPatName();
     int    GetPatID();
     double GetFineBalance();

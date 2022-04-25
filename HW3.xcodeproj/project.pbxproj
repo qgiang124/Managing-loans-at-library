@@ -44,6 +44,7 @@
 		8EE0993E2814DC83003F8A9A /* books.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = books.dat; sourceTree = "<group>"; };
 		8EE0993F2814FCFB003F8A9A /* Loans.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loans.cpp; sourceTree = "<group>"; };
 		8EE099412814FE5A003F8A9A /* Patrons.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Patrons.cpp; sourceTree = "<group>"; };
+		8EE099432815A9FF003F8A9A /* patrons.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = patrons.dat; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 				8ED3AC6A28008CB90019688F /* Book.cpp */,
 				8EE0993E2814DC83003F8A9A /* books.dat */,
 				8EE0993C28131863003F8A9A /* Books.cpp */,
+				8EE099432815A9FF003F8A9A /* patrons.dat */,
 				8E58699F280642C900134156 /* Loan.cpp */,
 				8EE099412814FE5A003F8A9A /* Patrons.cpp */,
 				8E58699D28063C0F00134156 /* Patron.cpp */,

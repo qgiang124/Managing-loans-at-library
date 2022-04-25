@@ -10,6 +10,7 @@
 
 void Books::AddBook(Book currBook) {
     listBook.push_back(currBook);
+    IncCount();
 }
 
 void Books::EditBook(int bookID) {
@@ -119,9 +120,10 @@ void Books::LoadBook() {
         currBook.SetLibraryID(libID);
         currBook.SetCurrStatus(currStatus);
         
-        AddBook(currBook);
+        listBook.push_back(currBook);
         count++;
     }
+    inFS.close();
 }
 
 void Books::DeleteBook(int bookID) {
@@ -135,6 +137,7 @@ void Books::DeleteBook(int bookID) {
         listBook.erase(listBook.begin() + bookPos);
         cout << "The book is deleted!\n";
     }
+    DecCount();
 }
 
 int Books::SearchBook(int bookID) {
@@ -156,7 +159,7 @@ void Books::PrintAllBook() {
     }
 }
 
-void Books::PrintBook(int bookID) {
+void Books::PrintABook(int bookID) {
     unsigned int bookPos;
     
     bookPos = SearchBook(bookID);

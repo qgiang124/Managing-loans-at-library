@@ -6,8 +6,9 @@
 //
 
 #include "Patron.h"
+using namespace std;
 
-Patron::Patron() {
+Patron::Patron(){
     name = "none";
     IDNum = 0;
     fineBalance = 0;
@@ -37,6 +38,14 @@ void Patron::SetNumBooksOut(int numToSet) {
     numBooksOut = numToSet;
 }
 
+void Patron::AddFine(int amount) {
+    fineBalance += amount;
+}
+
+void Patron::PayFine(int amount) {
+    fineBalance -= amount;
+}
+
 string Patron::GetPatName() {
     return name;
 }
@@ -54,6 +63,7 @@ int Patron::GetNumBooksOut() {
 }
 
 void Patron::PrintPatron() {
+    cout << "---------------PATRON DETAILS---------------\n";
     cout << left << setw(20) << "Patron's name:" << name << endl;
     cout << left << setw(20) << "Patron's ID:" << IDNum << endl;
     cout << left << setw(20) << "Fine balance: " << fineBalance << endl;

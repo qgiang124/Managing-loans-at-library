@@ -21,21 +21,18 @@ private:
     int bookID;
     int patronID;
     string dueDate;
-    string currLoanStatus;
     
 public:
     Loan();
-    Loan(int loanID, int bookID, int patronID, string dueDate, string currLoanStatus);
+    Loan(int loanID, int bookID, int patronID, string dueDate);
     void SetLoanID(int LIDToSet);
     void SetBookID(int BIDToSet);
     void SetPatronID(int PIDToSet);
     void SetDueDate(string dateToSet);
-    void SetLoanStatus(string statToSet);
     int  GetLoanID();
     int  GetPatronID();
     int  GetBookID();
     int  GetDueDate();
-    string GetCurrLoanStatus();
     void PrintLoan();
 };
 

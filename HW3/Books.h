@@ -24,7 +24,7 @@ public:
     void DecCount();
     void LoadBook();
     void PrintAllBook();
-    void PrintBook(int bookID);
+    void PrintABook(int bookID);
     int  SearchBook(int bookID);
 };
 
