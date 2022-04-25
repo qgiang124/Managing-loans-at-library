@@ -32,6 +32,7 @@
 		8E13EC6F27FB461C00895F19 /* Books.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Books.h; sourceTree = "<group>"; };
 		8E13EC7027FB462E00895F19 /* Loans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Loans.h; sourceTree = "<group>"; };
 		8E13EC7127FB463900895F19 /* Patrons.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Patrons.h; sourceTree = "<group>"; };
+		8E1A10F82817413100AA70FF /* loans.dat */ = {isa = PBXFileReference; lastKnownFileType = text; path = loans.dat; sourceTree = "<group>"; };
 		8E58699D28063C0F00134156 /* Patron.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Patron.cpp; sourceTree = "<group>"; };
 		8E58699F280642C900134156 /* Loan.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Loan.cpp; sourceTree = "<group>"; };
 		8EB9B1E427F2656900DF75B7 /* HW3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW3; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +85,7 @@
 				8EE0993F2814FCFB003F8A9A /* Loans.cpp */,
 				8ED3AC6A28008CB90019688F /* Book.cpp */,
 				8EE0993E2814DC83003F8A9A /* books.dat */,
+				8E1A10F82817413100AA70FF /* loans.dat */,
 				8EE0993C28131863003F8A9A /* Books.cpp */,
 				8EE099432815A9FF003F8A9A /* patrons.dat */,
 				8E58699F280642C900134156 /* Loan.cpp */,

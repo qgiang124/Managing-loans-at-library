@@ -24,12 +24,14 @@ private:
     int ID = 0;
     vector<Loan> listLoan;
 //    time_t checkOutTime;
-    void CheckOverDue(Loan* loan, Patron &patron);
+    
 public:
     void CheckOutBook(Patron* pat, Book* book);
     void CheckInBook(Patron* pat, Book* book, Loan* loan);
     void ListOverdue();
     void ListAllBookFor(Patron* pat, Books* books);
+    void LoadLoan();
+    void CheckOverDue(Loan* loan, Patron &patron);
     void RecheckBook(int patronID);
 //    void ReportLost(int patronID);
 };

@@ -63,7 +63,7 @@ int main() {
 //    cout << now << endl;
     time_t due=  now  + CHECK_OUT_PERIOD;
     
-    cout << difftime(now, due) << endl << difftime(due, now);
+    cout << difftime(now, due) << endl << due;
 //    listPatron.PayFines(3);
     return 0;
 }

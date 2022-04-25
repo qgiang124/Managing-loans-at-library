@@ -140,7 +140,6 @@ void Patrons::LoadPatron() {
     int    ID;
     double fine;
     int    numBookOut;
-    cout << "Giang";
     inFS.open("patrons.dat");
     if (!inFS.is_open()) {
         cout << "Could not open file patrons.dat" << endl;

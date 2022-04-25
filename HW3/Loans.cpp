@@ -6,6 +6,7 @@
 //
 
 #include "Loans.h"
+#include <fstream>
 
 using namespace std;
 
@@ -110,6 +111,40 @@ void Loans::ListOverdue() {
     }
 }
 
+void Loans::LoadLoan() {
+    Loan currLoan;
+    int numLoan;
+    ifstream inFS;
+    int loanID;
+    int bookID;
+    int patronID;
+    time_t dueDate;
+    
+    inFS.open("loans.dat");
+    if (!inFS.is_open()) {
+        cout << "Could not open file loans.dat" << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    inFS >> numLoan; inFS.ignore();
+    
+    for (int i = 0; i < numLoan; i++) {
+        inFS >> loanID; inFS.ignore(256, ',');
+        inFS >> patronID; inFS.ignore(256, ',');
+        inFS >> bookID; inFS.ignore(256, ',');
+        inFS >> dueDate; inFS.ignore();
+        
+        currLoan.SetLoanID(loanID);
+        currLoan.SetPatronID(patronID);
+        currLoan.SetBookID(bookID);
+        currLoan.SetDueDate(dueDate);
+        
+        listLoan.push_back(currLoan);
+        count++;
+    }
+    inFS.close();
+}
+
 void Loans::CheckOverDue(Loan* loan, Patron &patron){
     time_t now = time(0);
     time_t dueDate = loan->GetDueDate();
@@ -122,6 +157,10 @@ void Loans::CheckOverDue(Loan* loan, Patron &patron){
     else {
         cout << "No book overdued." << endl;
     }
+}
+
+void Loans::RecheckBook(int patronID){
+    
 }
 
 void Loans::ListAllBookFor(Patron* pat, Books* books){
