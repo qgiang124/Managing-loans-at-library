@@ -19,13 +19,15 @@ public:
     void AddBook(Book currBook);
     void DeleteBook(int bookID);
     void EditBook(int bookID);
+    int FindPosBook(int bookID);
     int GetCount();
     void IncCount();
     void DecCount();
     void LoadBook();
     void PrintAllBook();
     void PrintABook(int bookID);
-    int  SearchBook(int bookID);
+    void StoreBook();
+    Book*  SearchBook(int bookID);
 };
 
 #endif /* Books_h */

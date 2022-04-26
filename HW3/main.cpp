@@ -1,9 +1,14 @@
-//
-//  main.cpp
-//  HW3
-//
-//  Created by Giang Tran on 3/28/22.
-//
+/*
+* CSCE 1040 Homework 3
+* Section: 002
+* Name: Giang Tran
+* UNT Email: giangtran2@my.unt.edu
+* Date submitted: 04/25/2022
+ 
+* File name: main.cpp
+* Description:  The programs implement library structures.
+*/
+ 
 
 #include <iostream>
 #include "Books.h"
@@ -14,56 +19,177 @@
 #include "Patron.h"
 
 using namespace std;
-    
-void TestBookClass() {
-    Book my_book;
-    Book my_2_book("giang", "my_diary", "39848392", 3432 , 394.3, "taken");
-    my_book.PrintBook();
-    cout << "---------------------------------\n";
-    my_2_book.PrintBook();
-    cout << my_book.GetCost() << endl;
-    cout << my_2_book.GetTitle() << endl;
-    my_book.SetCost(39) ;
-    cout << my_book.GetCost() << endl;
+
+void PrintMenu() {
+    cout << "==================MENU CHOICE=================\n";
+    cout <<  "0 - Quit\n 1 - Check out book\n 2 - Check in book\n 3 - Recheck book\n 4 - Report Lost\n 5 - List loans\n 6 - List patrons\n 7 - List books\n 8 - Add Patron\n 9 - Delete Patron\n 10 - Edit patron\n 11 - Search patron\n 12 - Add book\n 13 - Delete book\n 14 - Edit book\n 15 - Seaach book\n";
 }
 
-void TestPatronClass() {
-    Patron my_patron;
-    Patron my_2_patron("john", 389, 3.4, 3);
-    my_patron.SetPatID(432);
-    my_patron.PrintPatron();
-    cout << "---------------------------" << endl;
-    my_2_patron.PrintPatron();
+void ExecuteMenu(Patrons& listPat, Books& listBook, Loans& listLoan) {
+    int choice;
+    int patID;
+    int bookID;
+    int loanID;
+    string namePat;
+    double fineBal;
+    int numBooksOut;
+    string author;
+    string title;
+    string ISBNNum;
+    int    libID;
+    double cost;
+    string currStatus;
+    Patron* currPat;
+    Book*  currBook;
+    Loan* currLoan;
     
-}
+    switch (choice) {
+        case 1:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
+            
+            currPat = listPat.SearchPatron(patID);
+            currBook = listBook.SearchBook(bookID);
+            listLoan.CheckOutBook(currPat, currBook);
+            break;
+        case 2:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
 
-void TestLoanClass() {
-    Loan loan1;
-    Loan loan2(234, 345, 34, 4363);
-    loan1.SetLoanID(353);
-    loan1.PrintLoan();
-    cout << "-----------------" << endl;
-    loan2.PrintLoan();
+            currPat = listPat.SearchPatron(patID);
+            currBook = listBook.SearchBook(bookID);
+            listLoan.CheckInBook(currPat, currBook);
+            break;
+        case 3:
+            listLoan.RecheckBook(currLoan);
+        case 4:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
+
+            currPat = listPat.SearchPatron(patID);
+            currBook = listBook.SearchBook(bookID);
+            
+            listLoan.ReportLost(currPat, currBook);
+            break;
+        case 5:
+            listLoan.ListOverdue(); break;
+        case 6:
+            listPat.PrintAllPatrons(); break;
+        case 7:
+            listBook.PrintAllBook(); break;
+        case 8:
+            cout << "Enter the patron name: ";
+            getline(cin >> ws, namePat);
+            cout << "Enter the patron ID: ";
+            cin >> patID;
+            cout << "Enter the patron fine balance: ";
+            cin  >> fineBal;
+            cout << "Enter number of books out: ";
+            cin  >> numBooksOut;
+            
+            currPat->SetPatID(patID);
+            currPat->SetFineBal(fineBal);
+            currPat->SetPatName(namePat);
+            currPat->SetNumBooksOut(numBooksOut);
+            
+            listPat.AddPatron(*currPat);
+            break;
+        case 9:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            listPat.DeletePatron(patID);
+            break;
+        case 10:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            listPat.EditPatron(patID);
+            break;
+        case 11:
+            cout << "Enter the patron ID: ";
+            cin  >> patID;
+            currPat = listPat.SearchPatron(patID);
+            currPat->PrintPatron();
+        case 12:
+            cout << "Enter book's name: ";
+            getline(cin >> ws, title);
+            cout << "Enter book's author: ";
+            getline(cin >> ws, author);
+            cout << "Enter ISBN number: ";
+            cin  >> ISBNNum;
+            cout << "Enter library ID: ";
+            cin  >> libID;
+            cout << "Enter the cost: ";
+            cin  >> cost;
+            cout << "Enter current status (IN, OUT, LOST): ";
+            cin  >> currStatus;
+            
+            currBook->SetTitle(title);
+            currBook->SetAuthor(author);
+            currBook->SetISBNNum(ISBNNum);
+            currBook->SetLibraryID(libID);
+            currBook->SetCost(cost);
+            currBook->SetCurrStatus(currStatus);
+            
+            listBook.AddBook(*currBook);
+            break;
+        case 13:
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
+            
+            listBook.DeleteBook(bookID);
+            break;
+        case 14:
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
+            
+            listBook.EditBook(bookID);
+            break;
+        case 15:
+            cout << "Enter the book ID: ";
+            cin  >> bookID;
+            
+            currBook = listBook.SearchBook(bookID);
+            currBook->PrintBook();
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+    }
+    delete currPat;
+    delete currBook;
+    delete currLoan;
 }
 
 int main() {
-//    TestBookClass();
-//    TestPatronClass();
-//    TestLoanClass();
-//    Books listBook;
     Patrons listPatron;
-//
-//    cout << "Enter book name: " << endl;
-//    listBook.LoadBook();
-//    listBook.PrintAllBook();
+    Books listBook;
+    Loans listLoan;
+    int choice;
     
-//    listPatron.LoadPatron();
-//    listPatron.PrintAllPatrons();
-    time_t now = time(0);
-//    cout << now << endl;
-    time_t due=  now  + CHECK_OUT_PERIOD;
+    listPatron.LoadPatron();
+    listBook.LoadBook();
+    listLoan.LoadLoan();
     
-    cout << difftime(now, due) << endl << due;
-//    listPatron.PayFines(3);
+    PrintMenu();
+    
+    cout << "Enter your selection: ";
+    cin >> choice; cin.ignore();
+    while (choice != 0) {
+        ExecuteMenu(listPatron, listBook, listLoan);
+        PrintMenu();
+        
+        cout << "Enter your selection: ";
+        cin >> choice; cin.ignore();
+    }
+    
+    listPatron.StorePatron();
+    listBook.StoreBook();
+    listLoan.StoreLoan();
+    
     return 0;
 }

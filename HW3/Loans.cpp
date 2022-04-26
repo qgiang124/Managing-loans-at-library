@@ -24,10 +24,6 @@ void Loans::CheckOutBook(Patron* pat, Book* book) {
     cin >> bookID; cin.ignore();
     currLoan->SetBookID(bookID);
     
-//    time_t dueDate = GetDueTime();
-//    char* dt = ctime(&dueDate);
-//    currLoan->SetDueDate(dt);
-    
     //take the current time and hence set due date
     time_t now = time(0);
     currLoan->SetDueDate(now + CHECK_OUT_PERIOD);
@@ -59,8 +55,8 @@ void Loans::CheckOutBook(Patron* pat, Book* book) {
     cout << "Due date: " << currLoan->GetDueDate() << endl;
 }
 
-void Loans::CheckInBook(Patron* pat, Book* book, Loan* loan) {
-    unsigned int posLoan;
+void Loans::CheckInBook(Patron* pat, Book* book) {
+    unsigned int posLoan = 0;
     
     for (unsigned int i = 0; i < count; i++) {
         if ((listLoan.at(i).GetPatronID() == pat->GetPatID()) && (listLoan.at(i).GetBookID() == book->GetLibraryID())) {
@@ -69,7 +65,6 @@ void Loans::CheckInBook(Patron* pat, Book* book, Loan* loan) {
     }
     
     double amountPay;
-    CheckOverDue(loan, *pat);
     //check if the patron is able to checked in
     if ((pat->GetNumBooksOut() > 0) && (pat->GetFineBalance() <= 0)) {
         pat->SetNumBooksOut(pat->GetNumBooksOut() - 1);
@@ -119,6 +114,7 @@ void Loans::LoadLoan() {
     int bookID;
     int patronID;
     time_t dueDate;
+    int recheck;
     
     inFS.open("loans.dat");
     if (!inFS.is_open()) {
@@ -132,12 +128,14 @@ void Loans::LoadLoan() {
         inFS >> loanID; inFS.ignore(256, ',');
         inFS >> patronID; inFS.ignore(256, ',');
         inFS >> bookID; inFS.ignore(256, ',');
-        inFS >> dueDate; inFS.ignore();
+        inFS >> dueDate; inFS.ignore(256, ',');
+        inFS >> recheck; inFS.ignore();
         
         currLoan.SetLoanID(loanID);
         currLoan.SetPatronID(patronID);
         currLoan.SetBookID(bookID);
         currLoan.SetDueDate(dueDate);
+        currLoan.SetRecheck(recheck);
         
         listLoan.push_back(currLoan);
         count++;
@@ -159,8 +157,26 @@ void Loans::CheckOverDue(Loan* loan, Patron &patron){
     }
 }
 
-void Loans::RecheckBook(int patronID){
-    
+void Loans::RecheckBook(Loan* loan){
+    for (int i = 0; i < count; i++) {
+        //check if the loan already exist
+        if (listLoan.at(i).GetLoanID() == loan->GetLoanID()) {
+            if (loan->GetRecheck() == 0) {
+                cout << "We will renew the book.\n";
+                
+                //set new due date
+                time_t newDue = loan->GetDueDate() + CHECK_OUT_PERIOD;
+                loan->SetDueDate(newDue);
+                
+                //mark as renewed
+                loan->SetRecheck(1);
+                cout << "The new due date is: " << ctime (&newDue) << endl;
+            }
+            else {
+                cout << "The book has been renewed before.\n";
+            }
+        }
+    }
 }
 
 void Loans::ListAllBookFor(Patron* pat, Books* books){
@@ -173,4 +189,30 @@ void Loans::ListAllBookFor(Patron* pat, Books* books){
     }
 }
 
+void Loans::ReportLost(Patron *pat, Book* book) {
+    for (int i = 0; i < count; i++) {
+        if (listLoan.at(i).GetPatronID() == pat->GetPatID() && (listLoan.at(i).GetBookID() == book->GetLibraryID())) {
+            pat->AddFine(book->GetCost());
+            book->SetCurrStatus("LOST");
+        }
+    }
+}
 
+void Loans::StoreLoan() {
+    ofstream outFS("books.o");
+    
+    outFS.open("books.o");
+    if(!outFS.is_open()) {
+        cout << "Could not open file books.o." << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    vector<Loan>::iterator iter;
+    for (iter = listLoan.begin(); iter != listLoan.end(); iter++) {
+        outFS << left << setw(20) << "Loan ID: " << (*iter).GetLoanID() << endl;
+        outFS << left << setw(20) << "Book ID: " << (*iter).GetBookID() << endl;
+        outFS << left << setw(20) << "Patron ID: " << (*iter).GetPatronID() << endl;
+        outFS << left << setw(20) << "Due date: " << (*iter).GetDueDate() << endl;
+    }
+    outFS.close();
+}

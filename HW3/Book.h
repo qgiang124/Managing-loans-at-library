@@ -1,9 +1,13 @@
-//
-//  Book.h
-//  HW3
-//
-//  Created by Giang Tran on 3/28/22.
-//
+/*
+* CSCE 1040 Homework 3
+* Section: 002
+* Name: Giang Tran
+* UNT Email: giangtran2@my.unt.edu
+* Date submitted: 04/25/2022
+ 
+* File name: Book.h
+* Description:  The header file represents accessors and mutators of book's elements such as author, title, isbn number, library ID, cost and status
+*/
 
 #ifndef Book_h
 #define Book_h

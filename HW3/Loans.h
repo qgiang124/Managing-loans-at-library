@@ -27,12 +27,13 @@ private:
     
 public:
     void CheckOutBook(Patron* pat, Book* book);
-    void CheckInBook(Patron* pat, Book* book, Loan* loan);
+    void CheckInBook(Patron* pat, Book* book);
     void ListOverdue();
     void ListAllBookFor(Patron* pat, Books* books);
     void LoadLoan();
     void CheckOverDue(Loan* loan, Patron &patron);
-    void RecheckBook(int patronID);
-//    void ReportLost(int patronID);
+    void RecheckBook(Loan* loan);
+    void ReportLost(Patron* pat, Book* book);
+    void StoreLoan();
 };
 #endif /* Loans_h */

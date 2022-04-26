@@ -15,7 +15,7 @@ class Patrons {
 private:
     vector<Patron> listPatron;
     int count = 0;
-    bool FoundPatron(int patronID); //return true if patron found in list
+    int FoundPatron(int patronID); //return true if patron found in list
 public:
     void AddPatron(Patron currPatron);
     void DeletePatron(int patronID);
@@ -23,11 +23,12 @@ public:
     void DecCount();
     void IncCount();
     int  GetCount();
-    int  SearchPatron(int patronID);
+    Patron*  SearchPatron(int patronID);
     void LoadPatron();
     void PayFines(int patronID);
     void PrintAllPatrons();
     void PrintAPatron(int patronID);
+    void StorePatron();
 };
 
 #endif /* Patrons_h */

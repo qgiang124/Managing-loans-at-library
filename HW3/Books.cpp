@@ -24,7 +24,7 @@ void Books::EditBook(int bookID) {
     double newCost;
     string newCurrStatus;
     
-    bookPos = SearchBook(bookID);
+    bookPos = FindPosBook(bookID);
     currBook = &listBook[bookPos];
     
     if (bookPos == -1) {
@@ -128,7 +128,7 @@ void Books::LoadBook() {
 
 void Books::DeleteBook(int bookID) {
     unsigned int bookPos; //position of the book in listBook
-    bookPos = SearchBook(bookID);
+    bookPos = FindPosBook(bookID);
     
     if (bookPos == -1) {
         cout << "The book is not found! Please try again." << endl;
@@ -140,7 +140,7 @@ void Books::DeleteBook(int bookID) {
     DecCount();
 }
 
-int Books::SearchBook(int bookID) {
+int Books::FindPosBook(int bookID) {
     unsigned int pos = 0; //the posititon of the needed-to-look book
     vector<Book>::iterator iter;
     for (iter = listBook.begin(); iter != listBook.end(); iter++) {
@@ -162,9 +162,42 @@ void Books::PrintAllBook() {
 void Books::PrintABook(int bookID) {
     unsigned int bookPos;
     
-    bookPos = SearchBook(bookID);
+    bookPos = FindPosBook(bookID);
     
     listBook[bookPos].PrintBook();
+}
+
+Book* Books::SearchBook(int bookID) {
+    Book* ans = nullptr;
+    vector<Book>::iterator iter;
+    for (iter = listBook.begin(); iter != listBook.end(); iter++) {
+        if ((*iter).GetLibraryID() == bookID) {
+            ans = &(*iter);
+        }
+    }
+    return ans;
+}
+
+void Books::StoreBook() {
+    ofstream outFS;
+    
+    outFS.open("books.o");
+    if(!outFS.is_open()) {
+        cout << "Could not open file books.o." << endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    vector<Book>::iterator iter;
+    for (iter = listBook.begin(); iter != listBook.end(); iter++) {
+        outFS << "----------BOOK DETAILS--------------\n";
+        outFS << left << setw(20) << "Title: " << (*iter).GetTitle() << endl;
+        outFS << left << setw(20) << "Author: " << (*iter).GetAuthor() << endl;
+        outFS << left << setw(20) << "ISBNNum: " << (*iter).GetISBNNum() << endl;
+        outFS << left << setw(20) << "Library ID number: " << (*iter).GetLibraryID() << endl;
+        outFS << left << setw(20) << "Cost: " << "$" << (*iter).GetCost() << endl;
+        outFS << left << setw(20) << "Status: " << (*iter).GetStatus() << endl;
+    }
+    outFS.close();
 }
 
 

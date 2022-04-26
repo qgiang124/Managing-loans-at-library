@@ -12,9 +12,10 @@ Loan::Loan(){
     bookID = 0;
     patronID = 0;
     dueDate = 0;
+    recheck = 0;
 }
 
-Loan::Loan(int patronID, int bookID, int loanID, time_t dueDate) {
+Loan::Loan(int patronID, int bookID, int loanID, time_t dueDate, int recheckP) {
 //    this->currPatron = currPatron;
 //    this->usrBook = usrBook;
     this->loanID = loanID;
@@ -39,6 +40,10 @@ void Loan::SetDueDate(time_t dateToSet) {
     dueDate = dateToSet;
 }
 
+void Loan::SetRecheck(int recheckP) {
+    recheck = recheckP;
+}
+
 int Loan::GetLoanID() {
     return loanID;
 }
@@ -53,6 +58,10 @@ int Loan::GetBookID() {
 
 time_t Loan::GetDueDate() {
     return dueDate;
+}
+
+int Loan::GetRecheck() {
+    return recheck;
 }
 
 void Loan::PrintLoan() {
